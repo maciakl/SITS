@@ -1,0 +1,3 @@
+[submodule "db"]
+	path = db
+	url = https://maciakl@github.com/maciakl/ADatabase.git
