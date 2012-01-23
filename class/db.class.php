@@ -147,17 +147,25 @@ class MYSQLDatabase implements ADatabase
 	function dbconnect()
 	{
 		
-
 		// connect to the mysql server
 		$this->dblink = mysql_connect($this->hostname, $this->user, $this->password);
-		
-		// choose database
-		$selected = mysql_select_db($this->db, $this->dblink);
+
+		$selected = false;
+
+		if($this->dblink != false)
+		{
+			// choose database
+			$selected = mysql_select_db($this->db, $this->dblink);
+		}
 		
 		if(($this->dblink == false) or ($selected == false))
+		{
 			return false;
+		}
 		else
+		{
 			return true;
+		}
 	}
 
 	function is_connected()
@@ -178,7 +186,7 @@ class MYSQLDatabase implements ADatabase
 	function query($sql)
 	{
 		// escape and sanitize the string to prevent sql injection attacls
-		$sql = mysql_real_escape_string($sql);
+		//$sql = mysql_real_escape_string($sql);
 		
 		// send the query to the db
 		($result = mysql_query($sql)) or die($this->errorstring .  mysql_error());
@@ -235,3 +243,5 @@ class MYSQLDatabase implements ADatabase
 		return $this->errorstring . mysql_error();
 	}
 }
+
+?>
