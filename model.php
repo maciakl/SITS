@@ -64,7 +64,14 @@ abstract class Model
 
 		foreach($this->data as $value)
 		{
-			$sql .= $comma."'$value'";
+			if($value == null) 
+				$val = 	"NULL";
+			elseif($value == "NOW()")
+				$val = "NOW()";
+			else 
+				$val = "'$value'";
+
+			$sql .= $comma.$val;
 			$comma = ", ";
 		}
 
@@ -76,7 +83,11 @@ abstract class Model
 		$db = new MYSQLDatabase(SITS_DB_HOSTNAME, SITS_DB_NAME, SITS_DB_USER, SITS_DB_PASSWORD);
 		$db->dbconnect();
 		$db->query($sql);
+
+		$created_record_id  = $db->last_insert_id();
 		$db->dbclose();
+
+		return $created_record_id;
 	}
 
 	/**
@@ -122,7 +133,14 @@ abstract class Model
 		{
 			if($key != $pk)
 			{
-				$sql .= $comma."$key='$value'";
+				if($value == null) 
+					$val = 	"NULL";
+				elseif($value == "NOW()")
+					$val = "NOW()";
+				else 
+					$val = "'$value'";
+
+				$sql .= $comma."$key=$val";
 				$comma = ", ";
 			}
 		}
