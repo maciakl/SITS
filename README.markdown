@@ -47,7 +47,7 @@ Files
   * `/model/comment.model.php`	- extends `model.php`; handles CRUD operations for `sits_comment` table
   * `/model/tag.model.php`	- extends `model.php`; handles CRUD operations of `sits_tag` table
 
-DB Schema
+Building the DB Schema
 ---
 
 The file `/sql/mysql_create_tables.sql` contains the SQL code necessary to build these tables for you for a MySQL database. To import it to your db use:
@@ -56,6 +56,9 @@ The file `/sql/mysql_create_tables.sql` contains the SQL code necessary to build
 cd sql
 mysql -u root -p < mysql_create_tables.sql
 ```
+
+DB Structure
+---
 
 **sits_user**
 
