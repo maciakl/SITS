@@ -33,6 +33,7 @@ Files
 ---
 
   * `config.php`	- the configuration file
+  * `model.php`		- abstract class defining CRUD operations for all `*.model.php` files
   * `user.model.php`	- handles CRUD operations for `sits_user` table
   * `ticket.model.php`	- handles CRUD operations for `sits_ticket` table
   * `comment.model.php`	- handles CRUD operations for `sits_comment` table
