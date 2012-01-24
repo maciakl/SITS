@@ -1,7 +1,7 @@
 <?php
 
-require_once("db/db.class.php");
-require_once("config.php");
+require_once("../db/db.class.php");
+require_once("../config.php");
 /**
  * Abstract class that will be inherited by all models. It provides the basic CRUD logic for
  * interacting with the DB using ADatabase module for running actual queries.
