@@ -19,10 +19,18 @@ To configure your environment use the `config.php` file.
 Privacy Modes
 ---
 
-  * Public Mode 	- all tickets are public and no log in is necessary to view them
-  * Private Mode 	- users have to log in to view tickets
+  * **Public Mode** 	- all tickets are public and no log in is necessary to view them
+  * **Private Mode** 	- users have to log in to view tickets
 
 Privacy mode can be changed via the `config.php` file.
+
+User Types
+---
+
+  * **admin**	 	- can add new users and create new tags, edit everyone's tickets
+  * **standard**	- can create new tickets and edit their own
+  * **user**		- can only post comments
+  * **read-only** 	- can view tickets in which they are a `contact` if SITS is in Private Mode.
 
 Implementation Details
 ===
@@ -32,24 +40,21 @@ This info is for those who want to learn more about the code in order to build u
 Files
 ---
 
-  * `config.php`	- the configuration file
+  * `config.php`	- the configuration file. Defines bunch of constants. Here is where you configure DB info, and enable Pirvate Mode.
   * `model.php`		- abstract class defining CRUD operations for all `*.model.php` files
-  * `user.model.php`	- handles CRUD operations for `sits_user` table
-  * `ticket.model.php`	- handles CRUD operations for `sits_ticket` table
-  * `comment.model.php`	- handles CRUD operations for `sits_comment` table
-  * `tag.model.php`	- handles CRUD operations of `sits_tag` table
-
-
-User Types
----
-
-  * admin 	- can add new users and create new tags, edit everyone's tickets
-  * standard	- can create new tickets and edit their own
-  * user	- can only post comments
-  * read-only 	- can view tickets in which they are a `contact` if SITS is in Private Mode.
+  * `user.model.php`	- extends `model.php`; handles CRUD operations for `sits_user` table
+  * `ticket.model.php`	- extends `model.php`; handles CRUD operations for `sits_ticket` table
+  * `comment.model.php`	- extends `model.php`; handles CRUD operations for `sits_comment` table
+  * `tag.model.php`	- extends `model.php`; handles CRUD operations of `sits_tag` table
 
 DB Schema
 ---
+
+The file `mysql_create_tables.sql` contains the SQL code necessary to build these tables for you for a MySQL database. To import it to your db use:
+
+``` 
+mysql -u root -p < mysql_create_tables.sql
+```
 
 **sits_user**
 
@@ -93,4 +98,5 @@ Dependencies
 
   * PHP
   * MySQL (or whatever DB is supported by ADatabase module)
-  * Web server
+  * Web server (Apache, IIS, whatever)
+  * The [ADatabase module](https://github.com/maciakl/ADatabase).
