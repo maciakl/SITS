@@ -3,11 +3,40 @@ SITS: Simple Issue Tracking System
 
 SITS is a simple tool for tracking IT issues. There are many great and simple stand-alone bug tracking systems out there but they are geared mostly toward programing projects. It seems that most of the generic IT issue trackers exist as part of larger, more comprehensive infrastructures. SITS is lightweight, simple and generic making it easy to adapt to any setting.
 
+
+Configuration
+---
+
+To configure your environment use the `config.php` file.
+
+  * `SITS_DB_HOSTNAME`	- the ip or name of the server where the db is located (likely `localhost`)
+  * `SITS_DB_NAME`	- the name of the MySQL database. This is usually `sits` unless you changed it
+  * `SITS_DB_USER`	- the username you wan to use to access the db (dont' use root)
+  * `SITS_DB_PASSWORD`	- the password in plain text
+  * `SITS_PUBLIC_MODE`	- set this to false if you want to require users to log in to view tickets
+
+
 Privacy Modes
 ---
 
   * Public Mode 	- all tickets are public and no log in is necessary to view them
   * Private Mode 	- users have to log in to view tickets
+
+Privacy mode can be changed via the `config.php` file.
+
+Implementation Details
+===
+
+This info is for those who want to learn more about the code in order to build upon it.
+
+Files
+---
+
+  * `config.php`	- the configuration file
+  * `user.model.php`	- handles CRUD operations for `sits_user` table
+  * `ticket.model.php`	- handles CRUD operations for `sits_ticket` table
+  * `comment.model.php`	- handles CRUD operations for `sits_comment` table
+  * `tag.model.php`	- handles CRUD operations of `sits_tag` table
 
 
 User Types
@@ -57,3 +86,10 @@ DB Schema
   * `tagid`		- int		fk for tag
   * `ticketid`		- int		fk for ticket
 					PK is both together
+
+Dependencies
+---
+
+  * PHP
+  * MySQL (or whatever DB is supported by ADatabase module)
+  * Web server
