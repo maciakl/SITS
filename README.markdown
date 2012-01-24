@@ -41,11 +41,12 @@ Files
 ---
 
   * `/config.php`	- the configuration file. Defines bunch of constants. Here is where you configure DB info, and enable Pirvate Mode.
-  * `/model/model.php`		- abstract class defining CRUD operations for all `*.model.php` files
-  * `/model/user.model.php`	- extends `model.php`; handles CRUD operations for `sits_user` table
-  * `/model/ticket.model.php`	- extends `model.php`; handles CRUD operations for `sits_ticket` table
-  * `/model/comment.model.php`	- extends `model.php`; handles CRUD operations for `sits_comment` table
-  * `/model/tag.model.php`	- extends `model.php`; handles CRUD operations of `sits_tag` table
+  * `/model/model.php`		- abstract class defining CRUD operations for all `/model/*.model.php` files
+  * `/model/user.model.php`	- extends `/model/model.php`; handles CRUD operations for `sits_user` table
+  * `/model/ticket.model.php`	- extends `/model/model.php`; handles CRUD operations for `sits_ticket` table
+  * `/model/comment.model.php`	- extends `/model/model.php`; handles CRUD operations for `sits_comment` table
+  * `/model/tag.model.php`	- extends `/model/model.php`; handles CRUD operations of `sits_tag` table
+  * `/model/tagged.model.php`	- extends `model/model.php`; handles CRUD operations of `sits_tagged_tickets` table
 
 Building the DB Schema
 ---
