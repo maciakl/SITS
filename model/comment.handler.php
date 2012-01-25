@@ -9,7 +9,7 @@ class CommentHandler extends Handler
 {
 	function __construct($ticketid = false)
 	{
-		$condition = $ticketid ? " ticketid='$ticketid'" : "";
+		$condition = $ticketid ? " WHERE ticketid='$ticketid'" : "";
 
 		parent::__construct("sits_comment", $condition);
 	}

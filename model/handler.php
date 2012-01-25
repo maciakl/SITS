@@ -17,7 +17,7 @@ abstract class Handler
 	{
 		$this->TABLENAME = $table;
 
-		$where = $condition ? " WHERE $condition" : "";
+		$where = $condition ? $condition : "";
 
 		$this->sql = "SELECT * FROM $this->TABLENAME $where"; 
 
