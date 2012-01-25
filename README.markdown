@@ -40,14 +40,18 @@ This info is for those who want to learn more about the code in order to build u
 Files
 ---
 
-  * `/config.php`	- the configuration file. Defines bunch of constants. Here is where you configure DB info, and enable Pirvate Mode.
-  * `/model/model.php`		- abstract class defining CRUD operations for all `/model/*.model.php` files
-  * `/model/user.model.php`	- extends `/model/model.php`; handles CRUD operations for `sits_user` table
-  * `/model/ticket.model.php`	- extends `/model/model.php`; handles CRUD operations for `sits_ticket` table
-  * `/model/comment.model.php`	- extends `/model/model.php`; handles CRUD operations for `sits_comment` table
-  * `/model/tag.model.php`	- extends `/model/model.php`; handles CRUD operations of `sits_tag` table
-  * `/model/tagged.model.php`	- extends `/model/model.php`; handles CRUD operations of `sits_tagged_tickets` table; update not supported
-  * `/model/ticket.handler.php`	- handles generating the list of tickets, tags and comments on the page
+  * `config.php`	- the configuration file. Defines bunch of constants. Here is where you configure DB info, and enable Pirvate Mode.
+  * `model/model.php`		- abstract class defining CRUD operations for all `/model/*.model.php` files
+  * `model/user.model.php`	- extends `model/model.php`; handles CRUD operations for `sits_user` table
+  * `model/ticket.model.php`	- extends `model/model.php`; handles CRUD operations for `sits_ticket` table
+  * `model/comment.model.php`	- extends `model/model.php`; handles CRUD operations for `sits_comment` table
+  * `model/tag.model.php`	- extends `model/model.php`; handles CRUD operations of `sits_tag` table
+  * `model/tagged.model.php`	- extends `model/model.php`; handles CRUD operations of `sits_tagged_tickets` table; update not supporte
+  * `modle/handler.php`		- generic abstract class that defines logic for generating lists (tickets, comments, etc..)
+  * `model/comment.handler.php	- extends `model/handler.php`; defines the way to generate list of comments for a given ticket, or count how many comments per ticket.
+  * `model/tag.handler.php`	- extends `model/handler.php`; defines the way to generate a list of tags for a ticket.
+  * `model/ticket.handler.php`	- extents `model/handler.php`; handles generating s list of tickets along with a comment count and comma separated list of tags for each one of them. Uses both `model/comment.handler.php` and `model/tag.handler.php` to accomplish this.
+  * `test/`			- directory which contains test files. Not really robust unit tests mind you - just lazy dev tests.
 
 Building the DB Schema
 ---
