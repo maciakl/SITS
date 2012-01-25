@@ -46,7 +46,8 @@ Files
   * `/model/ticket.model.php`	- extends `/model/model.php`; handles CRUD operations for `sits_ticket` table
   * `/model/comment.model.php`	- extends `/model/model.php`; handles CRUD operations for `sits_comment` table
   * `/model/tag.model.php`	- extends `/model/model.php`; handles CRUD operations of `sits_tag` table
-  * `/model/tagged.model.php`	- extends `model/model.php`; handles CRUD operations of `sits_tagged_tickets` table
+  * `/model/tagged.model.php`	- extends `/model/model.php`; handles CRUD operations of `sits_tagged_tickets` table; update not supported
+  * `/model/ticket.handler.php`	- handles generating the list of tickets, tags and comments on the page
 
 Building the DB Schema
 ---
