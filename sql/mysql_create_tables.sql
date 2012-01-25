@@ -84,3 +84,18 @@ CREATE TABLE `sits_tagged_tickets` (
   KEY `FK_sits_tagged_tickets_ticketid` (`ticketid`),
   CONSTRAINT `FK_sits_tagged_tickets_ticketid` FOREIGN KEY (`ticketid`) REFERENCES `sits_ticket` (`ticketid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+insert into sits_user values ('admin', 'password', 'admin');
+
+insert into sits_ticket (ticketid, submitted_by, submitted_on, subject, priority, detail) values ('1', 'admin', NOW(), 'TEST', 'low', 'testting testing');
+
+insert into sits_ticket (ticketid, submitted_by, submitted_on, subject, priority, detail) values ('2', 'admin', NOW(), 'TEST2', 'low', 'testting testing 222');
+
+
+insert into sits_comment (commentid, ticketid, submitted_by, submitted_on, comment) values ('1', '1', 'admin', NOW(), 'this is a test');
+
+insert into sits_tag values('test', 'test');
+
+insert into sits_tagged_tickets values ('test', '1');
+
