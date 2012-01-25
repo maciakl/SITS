@@ -32,6 +32,15 @@ User Types
   * **user**		- can only post comments
   * **read-only** 	- can view tickets in which they are a `contact` if SITS is in Private Mode.
 
+Dependencies
+---
+
+  * PHP
+  * MySQL (or whatever DB is supported by ADatabase module)
+  * Web server (Apache, IIS, whatever)
+  * The [ADatabase module](https://github.com/maciakl/ADatabase).
+
+
 Implementation Details
 ===
 
@@ -40,7 +49,7 @@ This info is for those who want to learn more about the code in order to build u
 Forking and Cloning
 ---
 
-If you want to fork or clone this repository, use the *master* branch if you can. I push unstable and/or broken code to the *dev* branch *all* the time. The *dev* branch is a work-in-progress branch.
+If you want to fork or clone this repository, use the *master* branch if you can. I push unstable and/or broken code to the *dev* branch **all** the time. The *dev* branch is a work-in-progress branch.
 
 Files
 ---
@@ -108,10 +117,4 @@ DB Structure
   * `ticketid`		- int		fk for ticket
 					PK is both together
 
-Dependencies
----
 
-  * PHP
-  * MySQL (or whatever DB is supported by ADatabase module)
-  * Web server (Apache, IIS, whatever)
-  * The [ADatabase module](https://github.com/maciakl/ADatabase).
