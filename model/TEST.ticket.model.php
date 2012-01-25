@@ -14,7 +14,7 @@ var_dump($u->is_empty);
 $rand = strtoupper(md5(uniqid(mt_rand(), true)));
 
 echo "$b Populating with data...$b";
-$em = $u->create("foo", null, "TEST" , null, "low", "$rand");
+$em = $u->create("admin", null, "TEST" , null, "low", "$rand");
 
 var_dump($em);
 

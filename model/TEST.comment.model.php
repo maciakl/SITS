@@ -10,11 +10,11 @@ $u = new CommentModel();
 echo "Check if empty (should be):$b";
 var_dump($u->is_empty);
 
-$tic = 15;
+$tic = 1;
 $rand = strtoupper(md5(uniqid(mt_rand(), true)));
 
 echo "$b Populating with data...$b";
-$em = $u->create($tic, "foo", $rand);
+$em = $u->create($tic, "admin", $rand);
 
 var_dump($em);
 
