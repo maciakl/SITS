@@ -37,6 +37,11 @@ Implementation Details
 
 This info is for those who want to learn more about the code in order to build upon it.
 
+Forking and Cloning
+---
+
+If you want to fork or clone this repository, use the *master* branch if you can. I push unstable and/or broken code to the *dev* branch *all* the time. The *dev* branch is a work-in-progress branch.
+
 Files
 ---
 
