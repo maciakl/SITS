@@ -1,8 +1,11 @@
+
 <?php
 $b = '<br>';
 
+chdir("..");
+
 echo "Testing import...$b";
-require_once("user.model.php");
+require_once("model/user.model.php");
 
 echo "Initializing object...$b";
 $u = new UserModel();

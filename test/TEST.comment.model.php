@@ -1,20 +1,22 @@
 <?php
 $b = '<br>';
 
+chdir("..");
+
 echo "Testing import...$b";
-require_once("ticket.model.php");
+require_once("model/comment.model.php");
 
 echo "Initializing object...$b";
-$u = new TicketModel();
+$u = new CommentModel();
 
 echo "Check if empty (should be):$b";
 var_dump($u->is_empty);
 
-
+$tic = 1;
 $rand = strtoupper(md5(uniqid(mt_rand(), true)));
 
 echo "$b Populating with data...$b";
-$em = $u->create("admin", null, "TEST" , null, "low", "$rand");
+$em = $u->create($tic, "admin", $rand);
 
 var_dump($em);
 
@@ -25,7 +27,7 @@ var_dump($u->data);
 
 
 echo "$b Updating the last entry to type=standard...$b";
-$u->data["subject"] = "NOT A TEST";
+$u->data["comment"] = "NOT A TEST";
 $u->update();
 
 $u->read($em);

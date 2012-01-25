@@ -1,8 +1,8 @@
 <?php
 $b = '<br>';
-
+chdir("..");
 echo "Testing import...$b";
-require_once("tagged_tickets.model.php");
+require_once("model/tagged_tickets.model.php");
 
 echo "Initializing object...$b";
 $u = new TaggedTicketsModel();

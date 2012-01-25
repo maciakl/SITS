@@ -1,8 +1,10 @@
 <?php
 $b = '<br>';
 
+chdir("..");
+
 echo "Testing import...$b";
-require_once("tag.model.php");
+require_once("model/tag.model.php");
 
 echo "Initializing object...$b";
 $u = new TagModel();

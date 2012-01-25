@@ -1,8 +1,8 @@
 <?php
 
-require_once("../config.php");
-require_once("../db/db.class.php");
-require_once("model.php");
+require_once("config.php");
+require_once("db/db.class.php");
+require_once("model/model.php");
 
 
 class TaggedTicketsModel extends Model
