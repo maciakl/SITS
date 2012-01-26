@@ -1,0 +1,73 @@
+body {
+  font-size: 12px;
+  font-family: Verdana, Arial, SunSans-Regular, Sans-Serif;
+  color:#564b47;  
+  
+}
+
+#main {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+#content {
+
+	width: 65%;
+	min-width: 600px;
+	margin-left: 200px;
+}
+
+#sidebar {
+	float: left;
+	width: 200px;
+	min-width: 200px;
+}
+
+
+#footer {
+	clear: both;
+	width: 100%;
+}
+
+#content table {
+	margin: 10px;
+	border: solid 1px black;
+	border-collapse: collapse;
+	padding: 3;  
+}
+
+table.mainpage {
+	width: 100%;
+}
+
+td,th {
+	padding: 5px;
+	text-align: center;
+}
+
+table.detail {
+	border: solid 0px black;
+	width: 100%;
+}
+
+.detail th {
+	width: 200px;
+}
+
+.detail td, .detail th {
+	text-align: left;
+}
+
+.comment td, .comment th {
+	border-bottom: solid 1px black;
+	vertical-align: top;
+}
+
+.comment small {
+	text-decoration: none;
+}
+
+.ticketlink {
+	text-align: left;
+	
+}

@@ -1,17 +1,18 @@
 <?php
 
-// TODO: header
-
+include("inc/header.php");
 
 require_once("model/ticket.handler.php");
 
 $ticket = new TicketHandler();
 $ticket->start();
 
-echo "<table border=1>
+echo "<h3>Open Tickets</h3>
+
+    <table border='1' class='mainpage'>
 	
 	<tr>
-		<th>Ticket ID</th>
+		<th>ID</th>
 		<th>Submitted By</th>
 		<th>Assigned To</th>
 		<th>Contact</th>
@@ -28,6 +29,21 @@ echo "<table border=1>
 while($row = $ticket->next())
 {
 
+	// special handling for certain columns
+	$date = date("m/d/y g:m a", strtotime($row["submitted_on"]));
+
+	$subj = "<span class='ticketlink'><a href='view.php?t=$row[ticketid]'>$row[subject]</a></span>";
+
+	$res = $row["resolved"] ? "YES" : "NO";
+
+	$tags = ""; $comma = "";
+
+	foreach($row["tags"] as $t)
+	{
+		$tags .= "$comma<span class='$t[style] taglink'>$t[tagname]</span>";
+		$comma = ", ";
+	}
+
 	echo "
 	
 	<tr>
@@ -35,18 +51,18 @@ while($row = $ticket->next())
 		<td>	$row[submitted_by]	</td>
 		<td>	$row[assigned_to]	</td>
 		<td>	$row[contact]		</td>
-		<td>	$row[submitted_on]	</td>
+		<td>	$date			</td>
 		<td>	$row[priority]		</td>
-		<td>	$row[subject]		</td>
-		<td>	$row[resolved]		</td>
+		<td>	$subj			</td>
+		<td>	$res			</td>
 		<td>	$row[comment_count]	</td>
-		<td>	$row[tags]		</td>
+		<td>	$tags			</td>
 
 	</tr>";
 }
-	
 
+echo "</table>";
 
-// TODO: footer
+include("inc/footer.php");
 
 ?>

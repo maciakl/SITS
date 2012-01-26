@@ -9,11 +9,12 @@ Configuration
 
 To configure your environment use the `config.php` file.
 
-  * `SITS_DB_HOSTNAME`	- the ip or name of the server where the db is located (likely `localhost`)
-  * `SITS_DB_NAME`	- the name of the MySQL database. This is usually `sits` unless you changed it
-  * `SITS_DB_USER`	- the username you wan to use to access the db (dont' use root)
-  * `SITS_DB_PASSWORD`	- the password in plain text
-  * `SITS_PUBLIC_MODE`	- set this to false if you want to require users to log in to view tickets
+  * `SITS_DB_HOSTNAME`		- the ip or name of the server where the db is located (likely `localhost`)
+  * `SITS_DB_NAME`		- the name of the MySQL database. This is usually `sits` unless you changed it
+  * `SITS_DB_USER`		- the username you wan to use to access the db (dont' use root)
+  * `SITS_DB_PASSWORD`		- the password in plain text
+  * `SITS_PUBLIC_MODE`		- set this to false if you want to require users to log in to view tickets
+  * `SITS_ENABLE_INDEXING`	- set to true to enable search engine indexing. Set to false to disable it.
 
 
 Privacy Modes
@@ -62,10 +63,11 @@ Files
   * `model/tag.model.php`	- extends `model/model.php`; handles CRUD operations of `sits_tag` table
   * `model/tagged.model.php`	- extends `model/model.php`; handles CRUD operations of `sits_tagged_tickets` table; update not supporte
   * `modle/handler.php`		- generic abstract class that defines logic for generating lists (tickets, comments, etc..)
-  * `model/comment.handler.php	- extends `model/handler.php`; defines the way to generate list of comments for a given ticket, or count how many comments per ticket.
+  * `model/comment.handler.php`	- extends `model/handler.php`; defines the way to generate list of comments for a given ticket, or count how many comments per ticket.
   * `model/tag.handler.php`	- extends `model/handler.php`; defines the way to generate a list of tags for a ticket.
   * `model/ticket.handler.php`	- extents `model/handler.php`; handles generating s list of tickets along with a comment count and comma separated list of tags for each one of them. Uses both `model/comment.handler.php` and `model/tag.handler.php` to accomplish this.
   * `test/`			- directory which contains test files. Not really robust unit tests mind you - just lazy dev tests.
+  * `inc/`			- contains generic includes for page headers, footers and etc..
 
 Building the DB Schema
 ---
