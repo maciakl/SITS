@@ -1,8 +1,8 @@
 <?php
 
-echo "<pre>";
+require_once("test.php");
 
-chdir("..");
+$b = "\n";
 
 echo "Testing import...\n\n";
 require_once("model/ticket.handler.php");

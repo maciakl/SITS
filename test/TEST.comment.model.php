@@ -1,7 +1,8 @@
 <?php
-$b = '<br>';
 
-chdir("..");
+require_once("test.php");
+
+$b = "\n";
 
 echo "Testing import...$b";
 require_once("model/comment.model.php");

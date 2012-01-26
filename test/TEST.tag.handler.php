@@ -1,8 +1,6 @@
 <?php
 
-echo "<pre>";
-
-chdir(".."); 
+require_once("test.php");
 
 echo "Testing import...\n\n";
 require_once("model/tag.handler.php");
