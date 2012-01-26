@@ -8,6 +8,8 @@ require_once("model/ticket.model.php");
 echo "Initializing object...$b";
 $u = new TicketModel();
 
+
+
 echo "Check if empty (should be):$b";
 var_dump($u->is_empty);
 
@@ -38,5 +40,11 @@ $u->delete();
 
 $u->read($em);
 var_dump($u->data);
+
+
+echo "Testing random read of record 1:\n";
+
+$u->read(1);
+var_dump($u);
 
 ?>

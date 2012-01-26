@@ -1,9 +1,15 @@
 <?php
 
 require_once("model/model.php");
+require_once("model/comment.handler.php");
+require_once("model/tag.handler.php");
 
 class TicketModel extends Model
 {
+
+	var $comments;
+	var $tags;
+
 	function __construct()
 	{
 		parent::__construct("sits_ticket");
@@ -42,6 +48,22 @@ class TicketModel extends Model
 	function read($id)
 	{
 		parent::read("ticketid", $id);
+
+		// include comments
+		$this->comments = array();
+		$com = new CommentHandler($id);
+		$com->start();
+
+		while($comment = $com->next())
+			$this->comments[] = $comment;
+
+		// include tags
+		$this->tags = array();
+		$tags = new TagHandler($id);
+		$tags->start();
+
+		while($tag = $tags->next())
+			$this->tags[] = array("tagname" => $tag["tagname"], "style" => $tag["style"]);
 	}
 
 	function update()
