@@ -16,6 +16,13 @@ To configure your environment use the `config.php` file.
   * `SITS_PUBLIC_MODE`		- set this to false if you want to require users to log in to view tickets
   * `SITS_ENABLE_INDEXING`	- set to true to enable search engine indexing. Set to false to disable it.
 
+Word Filters
+---
+
+Following patters are going to be supported:
+
+  * `#1` - creates a link to ticket with ID of 1
+  * `#C1` - creates a link to comment with the ID of 1
 
 Privacy Modes
 ---

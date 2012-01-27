@@ -47,7 +47,7 @@ while($row = $ticket->next())
 	echo "
 	
 	<tr>
-		<td>	$row[ticketid]		</td>
+		<td>	#$row[ticketid]		</td>
 		<td>	$row[submitted_by]	</td>
 		<td>	$row[assigned_to]	</td>
 		<td>	$row[contact]		</td>

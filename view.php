@@ -47,7 +47,7 @@ if(!empty($_GET["t"]))
 
 			<tr>
 				<th>Ticket ID:</th>
-				<td>".	$ticket->data["ticketid"]	."</td>
+				<td>#".	$ticket->data["ticketid"]	."</td>
 			</tr>
 			<tr>
 				<th>Submitted By:</th>
@@ -100,11 +100,11 @@ if(!empty($_GET["t"]))
 			echo "
 				<tr>
 					<th>
-						<small>#$comment[commentid]</small><br> 
+						<small class='ticketid'>#C$comment[commentid]</small><br> 
 						<span class='email'>$comment[submitted_by]</span><br>
 						<small>$date</small>
 					</th>
-					<td>$comment[comment]</td>
+					<td>". nl2br($comment[comment]) ."</td>
 
 				</tr>";
 		}
