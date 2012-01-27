@@ -59,6 +59,15 @@ Forking and Cloning
 
 If you want to fork or clone this repository, use the *master* branch if you can. I push unstable and/or broken code to the *dev* branch **all** the time. The *dev* branch is a work-in-progress branch.
 
+Passwords
+---
+
+Passwords are stored in the database after being hashed and salted. The procedure is as follows:
+
+  1. generate a random `$salt` of length `SITS_SALT_LENGTH` (defined in `config.php` - an integer between 1-10 where 10 is default)
+  1. calculate SHA1 of password + salt: `$newpassword = sha1($salt.$plaintext_password)`
+  1. Append salt to the front of password: `$newpassword = $salt.$newpassword`
+
 Files
 ---
 

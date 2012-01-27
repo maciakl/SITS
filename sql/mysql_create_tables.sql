@@ -13,7 +13,7 @@ USE sits;
 DROP TABLE IF EXISTS `sits_user`;
 CREATE TABLE `sits_user` (
   `email` varchar(100) NOT NULL,
-  `password` varchar(45) NOT NULL,
+  `password` varchar(50) NOT NULL,
   `type` enum('admin','standard','user','read-only') NOT NULL,
   PRIMARY KEY (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;

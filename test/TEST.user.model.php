@@ -13,13 +13,19 @@ var_dump($u->is_empty);
 
 $em = strtoupper(md5(uniqid(mt_rand(), true)));
 
-echo "$b Populating with data...$b";
+echo "$b Populating with random username, password 'password' and type user..$b";
 $u->create($em, "password", "user");
 
 echo "Reading last entry...$b";
 $u->read($em);
 
 var_dump($u->data);
+
+echo "\nLet's see if we can match passwords - first correct one 'password'\n";
+var_dump($u->check_password("password"));
+
+echo "\nNow let's try a wrong password: 'foobar'\n";
+var_dump($u->check_password("foobar"));
 
 echo "$b Updating the last entry to type=standard...$b";
 $u->data["type"] = "standard";

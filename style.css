@@ -76,5 +76,6 @@ table.detail {
 }
 
 .ticketid {
-	color: gray;
+	background: gray;
+	color: white;
 }

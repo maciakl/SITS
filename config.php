@@ -39,4 +39,11 @@ define('SITS_PUBLIC_MODE', 		true		);
  	meta-tags will disallow indexing and caching.*/
 define('SITS_ENABLE_INDEXING',		true		);
 
+/*	SALT LENGTH
+	How long should the salt be. The longer the salt, the better. Note that the password
+	field in the DB is VARCHAR(50) and the SHA1 hash is 40 chars long, so your salt should
+	not exceed 10 characters. If you want a larger salt, you will need to change the datatype
+	of the password field.*/
+define('SITS_SALT_LENGTH',		10		);
+
 ?>
