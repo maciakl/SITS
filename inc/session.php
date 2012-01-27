@@ -1,9 +1,17 @@
 <?php
 
-define("SITS_ACCESS_LEVEL_ADMIN", 	0);
-define("SITS_ACCESS_LEVEL_STANDARD",	1);
-define("SITS_ACCESS_LEVEL_USER",	2);
-define("SITS_ACCESS_LEVEL_ALL", 	99);
+require_once("config.php");
+
+define("SITS_ACCESS_LEVEL_ADMIN", 	1); // less than 1 admin(0) 
+define("SITS_ACCESS_LEVEL_STANDARD",	2); // less than 2 admin(0), standard(1)
+define("SITS_ACCESS_LEVEL_USER",	3); // less than 3 admin(0), standard(1), user(2)
+
+if(SITS_PUBLIC_MODE)
+	define("SITS_ACCESS_LEVEL_ALL", 100); // less than 100 admin(0), standard(1), user(2), read_only(3), logged_out(99)
+else
+	define("SITS_ACCESS_LEVEL_ALL", 4); // less than 4 admin(0), standard(1), user(2), read_only(3)
+
+define("SITS_LOGGED_OUT", 99);
 
 session_start();
 
@@ -20,9 +28,9 @@ class Session
 	{
 		$this->ACCESS_LEVEL = $access_level==null ? SITS_ACCESS_LEVEL_ALL : $access_level;
 
-		if(!$this->can_access())
-			die("Forbidden");
 
+		if(!$this->can_access())
+			die("You don't have permission to view this page.<meta http-equiv='refresh' content='3;url=login.php'>");
 	}
 
 	function login($email, $type)
@@ -48,12 +56,14 @@ class Session
 		if($this->is_logged_in())
 			$user_type_number = $this->type_to_number($_SESSION["type"]);		
 		else
-			$user_type_number = 999;
+			$user_type_number = SITS_LOGGED_OUT;
 
-		if($user_type > $this->ACCESS_LEVEL)
-			return false;
-		else
+		//echo "u: $user_type_number\ns: $this->ACCESS_LEVEL";
+		
+		if($user_type_number < $this->ACCESS_LEVEL)
 			return true;
+		else
+			return false;
 	}
 
 	function type_to_number($type)
@@ -70,10 +80,10 @@ class Session
 				return 2;
 				break;
 			case "read-only":
-				return 99;
+				return 3;
 				break;
 			default:
-				return 999;
+				return 99;
 		}
 	}
 

@@ -1,5 +1,8 @@
 <?php
 require_once("inc/session.php");
+
+$s = new Session(SITS_ACCESS_LEVEL_ALL);
+
 include("inc/header.php");
 
 require_once("model/ticket.handler.php");
