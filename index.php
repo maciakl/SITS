@@ -1,5 +1,5 @@
 <?php
-
+require_once("inc/session.php");
 include("inc/header.php");
 
 require_once("model/ticket.handler.php");

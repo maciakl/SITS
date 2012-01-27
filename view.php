@@ -1,18 +1,24 @@
 <?php
+require_once("inc/session.php");
 require_once("model/ticket.model.php");
 require_once("model/comment.model.php");
+
+$s = new Session(SITS_ACCESS_LEVEL_ALL);
 
 include("inc/header.php");
 
 if(!empty($_POST[comment]))
 {
-	$comment = new CommentModel();
+	if($s->is_logged_in() and $s->can_access())
+	{
+		$comment = new CommentModel();
 
-	$comment->data["submitted_by"] = "admin"; // TODO -> change to session username
-	$comment->data["ticketid"] = $_POST["ticketid"];
-	$comment->data["comment"] = $_POST["comment"];
+		$comment->data["submitted_by"] = $_SESSION["email"];
+		$comment->data["ticketid"] = $_POST["ticketid"];
+		$comment->data["comment"] = $_POST["comment"];
 
-	$comment->create();
+		$comment->create();
+	}
 }
 
 
@@ -116,19 +122,24 @@ if(!empty($_GET["t"]))
 		echo "<a name='comment'><h3>Post Comment</h3></a>
 			
 			
-			<div id='post-comment'>";
+			";
 
 		// TODO session check - hide box if not logged in or if read-only
-		
-		echo "
-			<form method='POST' action='#comment'>
-			<small>Logged in as <strong>admin</strong><br>
-				<input type='hidden' name='ticketid' value='".$ticket->data[ticketid]."'>
-				<textarea name='comment' id='comment-box' rows='3' cols='100'></textarea><br>
-				<input type='submit' value='Post Comment'>
-			</form>";
-		
-		echo "	</div>";
+
+		if($s->is_logged_in())
+		{
+			echo "<div id='post-comment'>
+				<form method='POST' action='#comment'>
+				<small>Logged in as <strong>$_SESSION[email]</strong><br>
+					<input type='hidden' name='ticketid' value='".$ticket->data[ticketid]."'>
+					<textarea name='comment' id='comment-box' rows='3' cols='100'></textarea><br>
+					<input type='submit' value='Post Comment'>
+				</form></div>";
+		}
+		else
+		{
+			echo "<div id='post-comment'><p>Please <a href='login.php'>log in</a> to post comments.</p>";
+		}
 
 }
 

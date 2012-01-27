@@ -13,6 +13,7 @@ body {
 #content {
 
 	width: 65%;
+	min-height: 400px;
 	min-width: 600px;
 	margin-left: 200px;
 }

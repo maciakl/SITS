@@ -31,11 +31,31 @@
 	<div id="main">
 
 		<div id="sidebar">
+
+		<?php
+			if(!empty($_SESSION['email']))
+			{
+				echo "<h3>Logged in</h3>
+					<ul>
+						<li>$_SESSION[email]</li>
+						<li><a href='logout.php'>Log Out</a></li>
+					</ul>";
+			}
+			else
+			{
+				echo "<h3>Not logged in</h3>
+					<ul>
+						<li><a href='login.php'>Log in</a></li>
+					</ul>";
+			}
+		?>
+
 			<h3>Navigation</h3>
 
 			<ul>
 				<li><a href="index.php">Home</a></li>
 				<li><a href="new.php">New Ticket</a></li>
+				<li><a href="tags.php">Manage Tags</a></li>
 			</ul>
 
 		</div>
