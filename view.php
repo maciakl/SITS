@@ -1,15 +1,33 @@
 <?php
 require_once("model/ticket.model.php");
+require_once("model/comment.model.php");
 
 include("inc/header.php");
+
+if(!empty($_POST[comment]))
+{
+	$comment = new CommentModel();
+
+	$comment->data["submitted_by"] = "admin"; // TODO -> change to session username
+	$comment->data["ticketid"] = $_POST["ticketid"];
+	$comment->data["comment"] = $_POST["comment"];
+
+	$comment->create();
+}
+
+
 
 if(!empty($_GET["t"]))
 {
 	// TODO: sanitize
 	$id = $_GET["t"];
 
+	
 	$ticket = new TicketModel();
 	$ticket->read($id);
+
+
+	
 
 	$date = date("m/d/y g:m a", strtotime($ticket->data["submitted_on"]));
 
@@ -93,9 +111,28 @@ if(!empty($_GET["t"]))
 
 
 		echo "</table>";
+			
+			
+		echo "<a name='comment'><h3>Post Comment</h3></a>
+			
+			
+			<div id='post-comment'>";
+
+		// TODO session check - hide box if not logged in or if read-only
+		
+		echo "
+			<form method='POST' action='#comment'>
+			<small>Logged in as <strong>admin</strong><br>
+				<input type='hidden' name='ticketid' value='".$ticket->data[ticketid]."'>
+				<textarea name='comment' id='comment-box' rows='3' cols='100'></textarea><br>
+				<input type='submit' value='Post Comment'>
+			</form>";
+		
+		echo "	</div>";
 
 }
 
 include("inc/footer.php");
+
 
 ?>

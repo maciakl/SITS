@@ -15,7 +15,7 @@ class CommentModel extends Model
 					"comment" 	=> null );
 	}
 
-	function create($ticketid, $submitted_by, $comment)
+	function populate($ticketid, $submitted_by, $comment)
 	{
 
 		// TODO: validate priority
@@ -24,10 +24,16 @@ class CommentModel extends Model
 		$this->data["ticketid"] 	= $ticketid;
 		$this->data["submitted_by"] 	= $submitted_by;
 		$this->data["submitted_on"]	= "NOW()";
-		$this->data["comment"]		= $comment;
+		$this->data["comment"]		= mysql_escape_string($comment);
 
 		$this->is_empty = false;
+	}
 
+	function create()
+	{
+		$this->is_empty = false;
+		$this->data["submitted_on"] = "NOW()";
+		$this->data["comment"] = mysql_escape_string($this->data["comment"]);
 		return parent::create();
 	}
 

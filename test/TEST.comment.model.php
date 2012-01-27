@@ -17,7 +17,8 @@ $tic = 1;
 $rand = strtoupper(md5(uniqid(mt_rand(), true)));
 
 echo "$b Populating with data...$b";
-$em = $u->create($tic, "admin", $rand);
+$u->populate($tic, "admin", $rand);
+$em = $u->create();
 
 var_dump($em);
 
