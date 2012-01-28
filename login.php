@@ -9,17 +9,25 @@ $login_error = "<h3>Login Error</h3><p>Could not log you in using that email and
 
 if(empty($_POST["email"]))
 {
-	echo "
-		<h3>Log In</h3>
-		<form method='POST'>
-			<label for='email'>Email:<br>
-			<input type='text' name='email'></label>
-			<br>
-			<label for='password'>Password:<br>
-			<input type='password' name='password'></label>
-			<br>
-			<input type='submit' value='log in'>
-		</form>	";
+	if(empty($_SESSION["email"]))
+	{
+		echo "
+			<h3>Log In</h3>
+			<form method='POST'>
+				<label for='email'>Email:<br>
+				<input type='text' name='email'></label>
+				<br>
+				<label for='password'>Password:<br>
+				<input type='password' name='password'></label>
+				<br>
+				<input type='submit' value='log in'>
+			</form>	";
+	}
+	else
+		echo "
+			<h3>Log in as another user?</h3>
+			<p>You are currently logged in as $_SESSION[email]. To log in as another user,
+		       <a href='logout.php'>log out</a> first.</p>";
 }
 else
 {

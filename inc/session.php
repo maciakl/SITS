@@ -30,7 +30,11 @@ class Session
 
 
 		if(!$this->can_access())
-			die("You don't have permission to view this page.<meta http-equiv='refresh' content='3;url=login.php'>");
+			die("
+				<h3>Not Permitted</h3>
+				<p>You don't have permission to view this page.
+				<meta http-equiv='refresh' content='3;url=login.php'>
+			");
 	}
 
 	function login($email, $type)
