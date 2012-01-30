@@ -60,11 +60,12 @@ table.detail {
 }
 
 .detail th {
-	width: 200px;
+	width: 100px;
 }
 
 .detail td, .detail th {
 	text-align: left;
+	vertical-align: top;
 }
 
 .ticketedit {

@@ -52,14 +52,26 @@ if(!empty($_GET["t"]))
 		<table class='detail'>
 
 			<tr>
-				<th>Ticket ID:</th>
-				<td>#".	$ticket->data["ticketid"]	."</td>
+				<th>Subject:</th>
+				<td>".	$ticket->data[subject]		."</td>
+			
+				<th>Ticket id:		</th>	<td>#". $ticket->data["ticketid"]."</td>
+				
 			</tr>
+			
 			<tr>
+				<th>Submitted On:</th>
+				<td>".	$date				."</td>
+
 				<th>Submitted By:</th>
 				<td>".	$ticket->data[submitted_by]	."</td>
 			</tr>
+
+
 			<tr>
+				<th rowspan='5'>Detail:</th>
+				<td rowspan='5'>".	$ticket->data[detail]		."</td>
+		
 				<th>Assigned To:</th>
 				<td>".	$ticket->data[assigned_to]	."</td>
 			</tr>
@@ -67,22 +79,12 @@ if(!empty($_GET["t"]))
 				<th>Contact:</th>
 				<td>".	$ticket->data[contact]		."</td>
 			</tr>
-			<tr>
-				<th>Submitted On:</th>
-				<td>".	$date				."</td>
-			</tr>
+			
 			<tr>
 				<th>Priority:</th>
 				<td>".	$ticket->data[priority]		."</td>
 			</tr>
-			<tr>
-				<th>Subject:</th>
-				<td>".	$ticket->data[subject]		."</td>
-			</tr>
-			<tr>
-				<th>Detail:</th>
-				<td>".	$ticket->data[detail]		."</td>
-			</tr>
+			
 			<tr>
 				<th>Resolved:</th>
 				<td>".	$res				."</td>
