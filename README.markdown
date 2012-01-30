@@ -15,6 +15,7 @@ To configure your environment use the `config.php` file.
   * `SITS_DB_PASSWORD`		- the password in plain text
   * `SITS_PUBLIC_MODE`		- set this to false if you want to require users to log in to view tickets
   * `SITS_ENABLE_INDEXING`	- set to true to enable search engine indexing. Set to false to disable it.
+  * `SITS_SALT_LENGTH`		- the length of salt used for hashing passwords. Default is 10 characters.
 
 Word Filters
 ---

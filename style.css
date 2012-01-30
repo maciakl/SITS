@@ -51,12 +51,24 @@ table.detail {
 	width: 100%;
 }
 
+.subject {
+	text-align: left;
+}
+
+.subject small {
+	color: gray;
+}
+
 .detail th {
 	width: 200px;
 }
 
 .detail td, .detail th {
 	text-align: left;
+}
+
+.ticketedit {
+	width: 50%;
 }
 
 .comment td, .comment th {

@@ -16,12 +16,12 @@ echo "<h3>Open Tickets</h3>
 	
 	<tr>
 		<th>ID</th>
+		<th>Subject</th>
 		<th>Submitted By</th>
 		<th>Assigned To</th>
 		<th>Contact</th>
 		<th>Date</th>
 		<th>Priority</th>
-		<th>Subject</th>
 		<th>Resolved</th>
 		<th>Comments</th>
 		<th>Tags</th>
@@ -47,16 +47,18 @@ while($row = $ticket->next())
 		$comma = ", ";
 	}
 
+	$detail = substr($row["detail"], 0, 100);
+
 	echo "
 	
 	<tr>
 		<td>	#$row[ticketid]		</td>
+		<td class='subject'>	$subj<br><small>$detail</small>	</td>
 		<td>	$row[submitted_by]	</td>
 		<td>	$row[assigned_to]	</td>
 		<td>	$row[contact]		</td>
 		<td>	$date			</td>
 		<td>	$row[priority]		</td>
-		<td>	$subj			</td>
 		<td>	$res			</td>
 		<td>	$row[comment_count]	</td>
 		<td>	$tags			</td>
