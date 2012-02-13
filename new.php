@@ -1,10 +1,15 @@
 <?php
 require_once("inc/session.php");
+require_once("model/ticket.model.php");
+
+
 $s = new Session(SITS_ACCESS_LEVEL_STANDARD);
 
 include("inc/header.php");
 
-echo "<h3>Create a New Ticket</h3>
+if(empty($_POST))
+{
+	echo "<h3>Create a New Ticket</h3>
 
 <form method='POST'>
 <label for='subject'>Descriptive Subject:<br>
@@ -34,6 +39,18 @@ echo "<h3>Create a New Ticket</h3>
 </form>
 	
 ";
+}
+else
+{
+	// TODO: sanitize
+	//
+	$ticket = new TicketModel();
+	$id = $ticket->create($_SESSION["email"], $_POST["assigned_to"], $_POST["subject"], $_POST["contact"], $_POST["priority"], $_POST["detail"]);
+
+	echo "<h3>Thank You</h3><p>Redirecting to ticket page. Click <a href='view.php?t=$id'>here</a> if this is taking too long.</p>";
+	echo '<meta http-equiv="refresh" content="0;url=view.php?t='.$id.'">';	
+
+}
 
 
 include("inc/footer.php");

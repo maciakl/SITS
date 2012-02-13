@@ -32,13 +32,13 @@ class TicketModel extends Model
 		
 		// tickedid is auto incremented so we skip it
 		$this->data["submitted_by"] 	= $submitted_by;
-		$this->data["assigned_to"] 	= $assiged_to;
+		$this->data["assigned_to"] 	= mysql_escape_string($assiged_to);
 		$this->data["submitted_on"]	= "NOW()";
-		$this->data["subject"]		= $subject;
+		$this->data["subject"]		= mysql_escape_string($subject);
 		$this->data["resolved"]		= false;
-		$this->data["contact"]		= $contact;
+		$this->data["contact"]		= mysql_escape_string($contact);
 		$this->data["priority"]		= $priority;
-		$this->data["detail"]		= $detail;
+		$this->data["detail"]		= mysql_escape_string($detail);
 
 		$this->is_empty = false;
 
