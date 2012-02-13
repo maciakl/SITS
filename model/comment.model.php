@@ -29,9 +29,14 @@ class CommentModel extends Model
 		$this->is_empty = false;
 	}
 
-	function create()
+	function create($submitted_by=null, $ticketid=null, $comment=null)
 	{
 		$this->is_empty = false;
+		
+		if(!empty($submitted_by)) 	$this->data["submitted_by"] = $submitted_by;
+		if(!empty($ticketid)) 		$this->data["ticketic"] = $ticketid;
+		if(!empty($comment))		$this->data["comment"] = $comment;
+		
 		$this->data["submitted_on"] = "NOW()";
 		$this->data["comment"] = mysql_escape_string($this->data["comment"]);
 		return parent::create();
