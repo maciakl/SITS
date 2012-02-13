@@ -29,7 +29,7 @@ class CommentModel extends Model
 		$this->is_empty = false;
 	}
 
-	function create($submitted_by=null, $ticketid=null, $comment=null)
+	function create($ticketid=null, $submitted_by= null, $comment=null)
 	{
 		$this->is_empty = false;
 		
