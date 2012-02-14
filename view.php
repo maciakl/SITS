@@ -70,7 +70,7 @@ if(!empty($_GET["t"]))
 
 			<tr>
 				<th rowspan='5'>Detail:</th>
-				<td rowspan='5'>".	$ticket->data[detail]		."</td>
+				<td rowspan='5'>".	nl2br($ticket->data[detail])		."</td>
 		
 				<th>Assigned To:</th>
 				<td>".	$ticket->data[assigned_to]	."</td>
@@ -95,8 +95,14 @@ if(!empty($_GET["t"]))
 				<td>$tags				</td>
 
 			</tr>	
-		</table>
+		</table>";
 
+	// TODO - make sure the privs work here - only admin and owner should be able to do this
+	if($s->is_logged_in())
+		echo "<p align='right'><a href='edit.php?t=".$ticket->data["ticketid"]."'>[Edit Ticket]</a></p>";
+
+
+	echo "
 		<h3>Comments:</h3>
 
 		<table class='detail comment'>";

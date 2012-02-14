@@ -54,7 +54,7 @@
 
 			<ul>
 				<li><a href="index.php">Home</a></li>
-				<li><a href="new.php">New Ticket</a></li>
+				<li><a href="edit.php">New Ticket</a></li>
 				<li><a href="tags.php">Manage Tags</a></li>
 			</ul>
 
