@@ -1,8 +1,18 @@
+@import url(http://fonts.googleapis.com/css?family=Asap|Ubuntu+Mono|Play:700);
+
 body {
-  font-size: 12px;
-  font-family: Verdana, Arial, SunSans-Regular, Sans-Serif;
+  font-size: 13px;
+  font-family: 'Asap', sans-serif;
   color:#564b47;  
   
+}
+
+pre {
+	font-family: 'Ubuntu Mono', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Play', sans-serif;
 }
 
 #main {
